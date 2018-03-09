@@ -87,7 +87,7 @@ function decode(emoji: string): string {
     if(!emoji || emoji === "")
         return ""
 
-    return cleaned(emoji)
+    return emoji
         .split(separator)
         .map(emojisStr=> {
             const emojisArray: Array<string> = Array.from(emojisStr)
@@ -101,11 +101,5 @@ function decode(emoji: string): string {
         .filter(str=> str !== "")
         .map(str=> parseInt(str, 6))
         .map(codePoint=> String.fromCodePoint(codePoint))
-        .join('')
-}
-
-function cleaned(emojis: string): string {
-    return Array.from(emojis)
-        .filter(emoji=> emoji === "🕊" || emojis.indexOf(emoji) > -1)
         .join('')
 }
